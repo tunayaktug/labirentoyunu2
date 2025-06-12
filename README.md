@@ -27,5 +27,4 @@ Yol Geçerliliği Kontrolü: yolGecerliligi fonksiyonu, bir hücrenin geçerli o
 Yol Arama: yolArama fonksiyonu, DFS algoritması kullanarak labirentteki çıkış yolunu arar ve bulursa yol dizisine ekler.
 Geliştirici Bilgileri 👨‍💻
 Geliştirici: Tunay Aktuğ
-E-posta: aktugtunay87@gmail.com
 İletişim: https://www.linkedin.com/in/tunay-a-2b94b9250/
