@@ -1,47 +1,62 @@
-# Maze Solver 🧩
+#  Maze Solver in C++
 
-This project contains an algorithm to find a way out of a maze. 🗺️  
-The maze is represented as a 2D array where `0` indicates a path and `1` indicates a wall.  
-The code uses the **Depth-First Search (DFS)** algorithm to find an exit path from the maze. 🧭
+This is a console-based maze-solving application written in **C++**, using **recursive backtracking** to navigate a 10x10 maze grid. The goal is to find a valid path from the **top-left (0,0)** to the **bottom-right (9,9)** cell.
 
----
+##  Maze Representation
 
-## 📋 Table of Contents
-- Project Description 🚀  
-- Usage Instructions 🛠️  
-- How the Code Works 🧠  
-- Developer Info 👨‍💻  
+The maze is defined as a 2D array:
 
----
+- `0` → Open path  
+- `1` → Wall  
+- `2` → Visited cell during the search
 
-## 🚀 Project Description
+```cpp
+int lbrnt[10][10] = {
+    {0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
+    {1, 0, 1, 1, 1, 1, 1, 1, 1, 1},
+    ...
+    {1, 1, 1, 1, 0, 0, 0, 0, 0, 0}
+};
+```
 
-This C++ program solves a maze of fixed size using the following steps:
+##  How It Works
+The yolArama(int x, int y) function explores all possible directions recursively (right, down, left, up).
 
-1. **Maze Initialization**: A 10x10 maze is defined using a 2D array.
-2. **Path Search**: A **Depth-First Search (DFS)** algorithm is applied to find a valid exit path.
-3. **Result Output**: If a path is found, the program prints the coordinates of the path to the console.
+The yolGecerliligi(int x, int y) function ensures that the next step is within bounds and on a valid path (0).
 
----
+The visited path is marked as 2 to prevent infinite loops.
 
-## 🛠️ Usage Instructions
+If the exit (9,9) is reached, the path is stored in the yol array and printed.
 
-### 🔧 Compile the Code
-Use a C++ compiler to build the program. Example using `g++`:
+##  Key Concepts
+Recursion and Backtracking
 
-## 🧠 How the Code Works
+Depth-First Search (DFS)
 
-### 🔷 Maze Representation  
-The 2D array `lbrnt` represents the maze structure:
-- `0`: open path  
-- `1`: wall  
+2D array traversal
 
-### 🔷 Validity Check  
-The function `yolGecerliligi` checks whether a given cell is within bounds and not a wall or already visited.
+Path tracking with coordinate arrays
 
-### 🔷 Pathfinding  
-The function `yolArama` uses the **Depth-First Search (DFS)** algorithm to explore possible routes from the start point to the exit.  
-If a valid path is found, each step is stored in a path array.
+##  Sample Output
+When a path is found:
+```cpp
+cikis yolu
+x y
+0 0
+1 0
+2 0
+...
+9 9
+```
+##  When no path is found:
+```cpp
+maalesef cikis yolu bulunamadi
+```
+## How to Compile & Run
+Ensure you have a C++ compiler (e.g., g++).
 
-### 🔷 Output  
-Once a path is found, the coordinates of each step in the solution path are printed sequentially to the console.
+Compile the program:
+g++ maze_solver.cpp -o maze_solver
+
+Run the program:
+./maze_solver
